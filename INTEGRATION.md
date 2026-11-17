@@ -5,8 +5,8 @@ there is no need to serialize them to JSON first.
 
 ```python
 from pathlib import Path
-from formazz.validation import evaluate_report_text
-from formazz.render import render_html_document, render_pdf_document
+from ristretto.validation import evaluate_report_text
+from ristretto.render import render_html_document, render_pdf_document
 
 report_path = Path("reports/sales.report")
 result = evaluate_report_text(
@@ -39,7 +39,7 @@ A theme can be supplied as `branding_source=theme_path.read_text()` and
 `appearance="light"` or `appearance="dark"` as required. The built-in Standard
 theme provides defaults when no theme is supplied.
 
-For native Qt, install the `qt` extra and use `formazz.render.qt_flow.ReportView`.
+For native Qt, install the `qt` extra and use `ristretto.render.qt_flow.ReportView`.
 Create a QApplication first, evaluate the report, then give its document and
 styles to the view's `set_report`. The host chooses when to refresh after data
 changes and which actions to register. Qt views are scrollable; PDF export uses

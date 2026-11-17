@@ -23,26 +23,26 @@ the filename with the release you downloaded):
 macOS or Linux:
 
 ```sh
-python -m pip install ./formazz-VERSION-py3-none-any.whl
+python -m pip install ./ristretto-VERSION-py3-none-any.whl
 ```
 
 Windows PowerShell:
 
 ```powershell
-py -m pip install .\formazz-VERSION-py3-none-any.whl
+py -m pip install .\ristretto-VERSION-py3-none-any.whl
 ```
 
 For native Qt reports and PDF export on macOS or Linux:
 
 ```sh
-python -m pip install './formazz-VERSION-py3-none-any.whl[qt,pdf]'
+python -m pip install './ristretto-VERSION-py3-none-any.whl[qt,pdf]'
 python -m playwright install chromium
 ```
 
 For native Qt reports and PDF export on Windows PowerShell:
 
 ```powershell
-py -m pip install ".\formazz-VERSION-py3-none-any.whl[qt,pdf]"
+py -m pip install ".\ristretto-VERSION-py3-none-any.whl[qt,pdf]"
 py -m playwright install chromium
 ```
 
@@ -70,8 +70,8 @@ range depending on the wheels published by PySide6 and Playwright.
 
 ```python
 from pathlib import Path
-from formazz.validation import evaluate_report_text
-from formazz.render import render_html_document
+from ristretto.validation import evaluate_report_text
+from ristretto.render import render_html_document
 
 source = '''rows
     title("Hello, Ristretto")
@@ -115,7 +115,7 @@ sha256sum -c SHA256SUMS
 On Windows PowerShell:
 
 ```powershell
-Get-FileHash .\formazz-VERSION-py3-none-any.whl -Algorithm SHA256
+Get-FileHash .\ristretto-VERSION-py3-none-any.whl -Algorithm SHA256
 ```
 
 GitHub's automatically generated source archives contain only this distribution
