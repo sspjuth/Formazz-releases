@@ -11,7 +11,7 @@ The engine source is maintained separately in a private repository.
 
 ## Download and install
 
-Download the `.whl` file from [Releases](https://github.com/sspjuth/Formazz-releases/releases).
+Download the `.whl` file from [Releases](https://github.com/sspjuth/Ristretto-releases/releases).
 The standard package requires **Python 3.10 or newer**. The wheel is tagged
 `py3-none-any`, so the same Ristretto wheel installs on macOS, Windows and Linux.
 Optional Qt and PDF dependencies are resolved by `pip` for the target machine
@@ -124,6 +124,6 @@ to install Ristretto.
 
 ## Feedback
 
-Please use [Issues](https://github.com/sspjuth/Formazz-releases/issues) for questions
+Please use [Issues](https://github.com/sspjuth/Ristretto-releases/issues) for questions
 and bug reports. Include the package version, Python version, operating system
 and a small reproducing report with non-sensitive sample data.
