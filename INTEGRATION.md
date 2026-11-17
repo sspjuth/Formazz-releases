@@ -1,4 +1,4 @@
-# Integrating Formazz
+# Integrating Ristretto
 
 The host owns the data. Pass Python values directly when evaluating a report;
 there is no need to serialize them to JSON first.

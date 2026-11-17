@@ -1,8 +1,8 @@
-# Formazz
+# Ristretto
 
 **Reports as part of your application.**
 
-Formazz turns application data into styled reports, charts and reusable report
+Ristretto turns application data into styled reports, charts and reusable report
 blocks. A report describes the layout; a theme controls typography and colors;
 your application supplies data and handles explicitly registered actions.
 
@@ -13,7 +13,7 @@ The engine source is maintained separately in a private repository.
 
 Download the `.whl` file from [Releases](https://github.com/sspjuth/Formazz-releases/releases).
 The standard package requires **Python 3.10 or newer**. The wheel is tagged
-`py3-none-any`, so the same Formazz wheel installs on macOS, Windows and Linux.
+`py3-none-any`, so the same Ristretto wheel installs on macOS, Windows and Linux.
 Optional Qt and PDF dependencies are resolved by `pip` for the target machine
 and may have their own platform requirements.
 
@@ -74,7 +74,7 @@ from formazz.validation import evaluate_report_text
 from formazz.render import render_html_document
 
 source = '''rows
-    title("Hello, Formazz")
+    title("Hello, Ristretto")
     body("A report embedded in your application.")
 '''
 result = evaluate_report_text(source, "hello.report")
@@ -96,7 +96,7 @@ locally; downloading/installing dependencies initially needs internet access.
 
 ## Package format and verification
 
-Formazz is distributed as a standard pure-Python wheel. The same wheel works
+Ristretto is distributed as a standard pure-Python wheel. The same wheel works
 across operating systems and supported Python versions; optional dependencies
 may download platform-specific wheels during installation.
 
@@ -120,7 +120,7 @@ Get-FileHash .\formazz-VERSION-py3-none-any.whl -Algorithm SHA256
 
 GitHub's automatically generated source archives contain only this distribution
 repository's documentation, not the engine implementation. Use the attached wheel
-to install Formazz.
+to install Ristretto.
 
 ## Feedback
 
