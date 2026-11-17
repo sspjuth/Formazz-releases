@@ -14,8 +14,9 @@ The engine source is maintained separately in a private repository.
 Download the `.whl` file from [Releases](https://github.com/sspjuth/Ristretto-releases/releases).
 The standard package requires **Python 3.10 or newer**. The wheel is tagged
 `py3-none-any`, so the same Ristretto wheel installs on macOS, Windows and Linux.
-Optional Qt and PDF dependencies are resolved by `pip` for the target machine
-and may have their own platform requirements.
+Optional PDF dependencies are resolved by `pip` for the target machine and may
+have their own platform requirements. The Qt extra is only needed when embedding
+Ristretto's Python Qt view classes directly.
 
 In your application's virtual environment, install the downloaded file (replace
 the filename with the release you downloaded):
@@ -32,17 +33,17 @@ Windows PowerShell:
 py -m pip install .\ristretto-VERSION-py3-none-any.whl
 ```
 
-For native Qt reports and PDF export on macOS or Linux:
+For PDF export on macOS or Linux:
 
 ```sh
-python -m pip install './ristretto-VERSION-py3-none-any.whl[qt,pdf]'
+python -m pip install './ristretto-VERSION-py3-none-any.whl[pdf]'
 python -m playwright install chromium
 ```
 
-For native Qt reports and PDF export on Windows PowerShell:
+For PDF export on Windows PowerShell:
 
 ```powershell
-py -m pip install ".\ristretto-VERSION-py3-none-any.whl[qt,pdf]"
+py -m pip install ".\ristretto-VERSION-py3-none-any.whl[pdf]"
 py -m playwright install chromium
 ```
 
@@ -52,16 +53,23 @@ On Linux, Playwright may also need browser system packages:
 python -m playwright install-deps chromium
 ```
 
+For Python Qt embedding examples or `ristretto.render.qt_flow.ReportView`,
+install the `qt` extra as well:
+
+```sh
+python -m pip install './ristretto-VERSION-py3-none-any.whl[qt]'
+```
+
 The package is not on PyPI. Use a downloaded wheel or its exact GitHub release
 asset URL. Pin the version in your application rather than silently upgrading it.
 
 ## Supported installation targets
 
-| Target | Core wheel | `qt` extra | `pdf` extra |
+| Target | Core wheel | `pdf` extra | `qt` extra |
 | --- | --- | --- | --- |
-| macOS with Python 3.10+ | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
-| Windows with Python 3.10+ | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
-| Linux with Python 3.10+ | Supported | Supported where PySide6 provides wheels and system libraries are available | Supported after installing Chromium and any required system packages |
+| macOS with Python 3.10+ | Supported | Supported after `playwright install chromium` | Only for Python Qt embedding; supported where PySide6 provides wheels |
+| Windows with Python 3.10+ | Supported | Supported after `playwright install chromium` | Only for Python Qt embedding; supported where PySide6 provides wheels |
+| Linux with Python 3.10+ | Supported | Supported after installing Chromium and any required system packages | Only for Python Qt embedding; supported where PySide6 provides wheels and system libraries are available |
 
 Use a currently supported CPython release. Optional extras may support a narrower
 range depending on the wheels published by PySide6 and Playwright.
