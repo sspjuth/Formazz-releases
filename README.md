@@ -12,38 +12,38 @@ The engine source is maintained separately in a private repository.
 ## Download and install
 
 Download the `.whl` file from [Releases](https://github.com/sspjuth/Formazz-releases/releases).
-The current package format requires **CPython 3.13**. The wheel is tagged
-`cp313-none-any`, so the same Formazz wheel installs on macOS, Windows and
-Linux. Optional Qt and PDF dependencies are resolved by `pip` for the target
-machine and may have their own platform requirements.
+The standard package requires **Python 3.10 or newer**. The wheel is tagged
+`py3-none-any`, so the same Formazz wheel installs on macOS, Windows and Linux.
+Optional Qt and PDF dependencies are resolved by `pip` for the target machine
+and may have their own platform requirements.
 
-In your application's Python 3.13 virtual environment, install the downloaded
-file (replace the filename with the release you downloaded):
+In your application's virtual environment, install the downloaded file (replace
+the filename with the release you downloaded):
 
 macOS or Linux:
 
 ```sh
-python -m pip install ./formazz-VERSION-cp313-none-any.whl
+python -m pip install ./formazz-VERSION-py3-none-any.whl
 ```
 
 Windows PowerShell:
 
 ```powershell
-py -3.13 -m pip install .\formazz-VERSION-cp313-none-any.whl
+py -m pip install .\formazz-VERSION-py3-none-any.whl
 ```
 
 For native Qt reports and PDF export on macOS or Linux:
 
 ```sh
-python -m pip install './formazz-VERSION-cp313-none-any.whl[qt,pdf]'
+python -m pip install './formazz-VERSION-py3-none-any.whl[qt,pdf]'
 python -m playwright install chromium
 ```
 
 For native Qt reports and PDF export on Windows PowerShell:
 
 ```powershell
-py -3.13 -m pip install ".\formazz-VERSION-cp313-none-any.whl[qt,pdf]"
-py -3.13 -m playwright install chromium
+py -m pip install ".\formazz-VERSION-py3-none-any.whl[qt,pdf]"
+py -m playwright install chromium
 ```
 
 On Linux, Playwright may also need browser system packages:
@@ -59,12 +59,12 @@ asset URL. Pin the version in your application rather than silently upgrading it
 
 | Target | Core wheel | `qt` extra | `pdf` extra |
 | --- | --- | --- | --- |
-| macOS with CPython 3.13 | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
-| Windows with CPython 3.13 | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
-| Linux with CPython 3.13 | Supported | Supported where PySide6 provides wheels and system libraries are available | Supported after installing Chromium and any required system packages |
+| macOS with Python 3.10+ | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
+| Windows with Python 3.10+ | Supported | Supported where PySide6 provides wheels | Supported after `playwright install chromium` |
+| Linux with Python 3.10+ | Supported | Supported where PySide6 provides wheels and system libraries are available | Supported after installing Chromium and any required system packages |
 
-Python 3.12, Python 3.14 and non-CPython interpreters are not compatible with
-the bytecode wheel. Use CPython 3.13 for all operating systems.
+Use a currently supported CPython release. Optional extras may support a narrower
+range depending on the wheels published by PySide6 and Playwright.
 
 ## First report
 
@@ -96,10 +96,9 @@ locally; downloading/installing dependencies initially needs internet access.
 
 ## Package format and verification
 
-Engine Python modules are distributed as bytecode (`.pyc`) without their `.py`
-sources. This makes casual reading harder; it is not encryption or copy
-protection. Browser JavaScript and resources remain readable. Bytecode must match
-the Python minor version: this package does not run on Python 3.12 or 3.14.
+Formazz is distributed as a standard pure-Python wheel. The same wheel works
+across operating systems and supported Python versions; optional dependencies
+may download platform-specific wheels during installation.
 
 Each release includes `SHA256SUMS`. On macOS verify downloaded files with:
 
@@ -116,7 +115,7 @@ sha256sum -c SHA256SUMS
 On Windows PowerShell:
 
 ```powershell
-Get-FileHash .\formazz-VERSION-cp313-none-any.whl -Algorithm SHA256
+Get-FileHash .\formazz-VERSION-py3-none-any.whl -Algorithm SHA256
 ```
 
 GitHub's automatically generated source archives contain only this distribution
